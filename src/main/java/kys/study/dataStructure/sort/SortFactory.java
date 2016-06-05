@@ -4,8 +4,20 @@ import kys.study.dataStructure.sort.impl.BubbleSort;
 import kys.study.dataStructure.sort.impl.InsertionSort;
 import kys.study.dataStructure.sort.impl.MergeSort;
 
+/**
+ * <pre>
+ * Sort FactoryMethod 패턴
+ * </pre>
+ * @author kim
+ * @date 2016. 6. 5.
+ */
 public class SortFactory {
 
+	/**
+	 * Sort 구현 클래스 리턴
+	 * @param str
+	 * @return
+	 */
 	public static Sort getInstance(SortAlgorithm str){
 		switch (str) {
 		case BUBBLE:
@@ -19,6 +31,13 @@ public class SortFactory {
 		}
 	}
 	
+	/**
+	 * <pre>
+	 * Sort 알고리즘
+	 * </pre>
+	 * @author kim
+	 * @date 2016. 6. 5.
+	 */
 	public enum SortAlgorithm{
 		
 		BUBBLE("bubble"),

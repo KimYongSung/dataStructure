@@ -8,5 +8,10 @@ package kys.study.dataStructure.sort;
  * @date 2016. 6. 5.
  */
 public interface Sort {
+	
+	/**
+	 * 입력받은 정수형 배열 정렬
+	 * @param arr
+	 */
 	void sorting(int[] arr);
 }

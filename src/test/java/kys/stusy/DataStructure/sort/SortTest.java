@@ -13,7 +13,7 @@ public class SortTest {
 	private int[] arr = new int[10];
 	
 	@Before
-	public void setArr(){
+	public void before(){
 		arr[0] = 99;
 		arr[1] = 25;
 		arr[2] = 35;
@@ -26,12 +26,7 @@ public class SortTest {
 		arr[9] = 59;
 		
 		System.out.println("정렬 전 :");
-		StringBuilder strBuilder = new StringBuilder();
-		for(int value : arr){
-			strBuilder.append("[").append(value).append("]");
-		}
-		System.out.println(strBuilder.toString());
-		
+		printArr();
 	}
 	
 	@Test
@@ -53,12 +48,17 @@ public class SortTest {
 	}
 	
 	@After
-	public void printArr(){
+	public void after(){
 		System.out.println("정렬 후 :");
+		printArr();
+	}
+	
+	public void printArr(){
 		StringBuilder strBuilder = new StringBuilder();
-		for(int value : arr){
+		
+		for(int value : arr) 
 			strBuilder.append("[").append(value).append("]");
-		}
+		
 		System.out.println(strBuilder.toString());
 	}
 }
