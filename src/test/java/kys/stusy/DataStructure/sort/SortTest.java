@@ -1,5 +1,6 @@
 package kys.stusy.DataStructure.sort;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -23,32 +24,41 @@ public class SortTest {
 		arr[7] = 45;
 		arr[8] = 89;
 		arr[9] = 59;
+		
+		System.out.println("정렬 전 :");
+		StringBuilder strBuilder = new StringBuilder();
+		for(int value : arr){
+			strBuilder.append("[").append(value).append("]");
+		}
+		System.out.println(strBuilder.toString());
+		
 	}
 	
 	@Test
 	public void bubbleTest(){
 		Sort sort = SortFactory.getInstance(SortAlgorithm.BUBBLE);
 		sort.sorting(arr);
-		for(int value : arr){
-			System.out.println(value);
-		}
 	}
 	
 	@Test
 	public void insertionTest(){
 		Sort sort = SortFactory.getInstance(SortAlgorithm.INSERTION);
 		sort.sorting(arr);
-		for(int value : arr){
-			System.out.println(value);
-		}
 	}
 	
 	@Test
 	public void mergeTest(){
 		Sort sort = SortFactory.getInstance(SortAlgorithm.MERGE);
 		sort.sorting(arr);
+	}
+	
+	@After
+	public void printArr(){
+		System.out.println("정렬 후 :");
+		StringBuilder strBuilder = new StringBuilder();
 		for(int value : arr){
-			System.out.println(value);
+			strBuilder.append("[").append(value).append("]");
 		}
+		System.out.println(strBuilder.toString());
 	}
 }
