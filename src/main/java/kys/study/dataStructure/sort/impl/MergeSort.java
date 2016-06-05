@@ -1,59 +1,54 @@
 package kys.study.dataStructure.sort.impl;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import kys.study.dataStructure.sort.AbstractSort;
 
 public class MergeSort extends AbstractSort{
 
 	@Override
 	public void sorting(int[] arr) {
-		divide(arr, 0, arr.length);
+		divide(arr,0,arr.length-1);
 	}
 	
-	public void divide(int[] arr, int start, int end){
-		if(end - start < 1) return;
+	public void divide(int[] arr,int start, int end){
+		if((end - start) < 1) return;
+		int mid = (start+end) / 2;
 		
-		int middle = (start+end) / 2;
-		divide(arr, start, middle);
-		divide(arr, middle+1, end);
-		
-		merge(arr, start, middle, end);
+		divide(arr,start, mid);
+		divide(arr,mid+1, end);
+		merge(arr, start, mid, end);
 	}
+	
+	public void merge(int[] arr,int start,int mid, int end){
+		int tempArr[] = new int[10];
 
-	public void merge(int[] arr, int start, int middle, int end){
-		int leftIndex = start;
-		int rightIndex = middle+1;
+		int left = start;
+		int right = mid+1;
+		int temp = start;
 		
-		List<Integer> temp = new LinkedList<Integer>();
-		
-		while(leftIndex <= middle && rightIndex <= end){
-			if(arr[leftIndex] < arr[rightIndex] ){
-				//temp[destIndex] = arr[leftIndex];
-				temp.add(arr[leftIndex]);
-				leftIndex++;
+		while((left <= mid) && (right <= end)){
+			if(arr[left] < arr[right]){
+				tempArr[temp] = arr[left];
+				left++;
 			}else{
-				//temp[destIndex] = arr[rightIndex];
-				temp.add(arr[leftIndex]);
-				rightIndex++;
+				tempArr[temp] = arr[right];
+				right++;
 			}
+			temp++;
 		}
 		
-		while(leftIndex <= middle){
-			//temp[destIndex] = arr[leftIndex];
-			temp.add(arr[leftIndex]);
-			leftIndex++;
+		while(left <= mid){
+			tempArr[temp] = arr[left];
+			left++;
+			temp++;
 		}
 		
-		while(rightIndex <= end){
-			//temp[destIndex] = arr[rightIndex];
-			temp.add(arr[leftIndex]);
-			rightIndex++;
+		while(right <= end){
+			tempArr[temp] = arr[right];
+			right++;
+			temp++;
 		}
 		
-		for(int index = start, dest = 0; index <= end; index++, dest++){
-			arr[index] = temp.get(dest);
-		}
+		for(int index = start; index <= end; index++)
+			arr[index] = tempArr[index];
 	}
 }
