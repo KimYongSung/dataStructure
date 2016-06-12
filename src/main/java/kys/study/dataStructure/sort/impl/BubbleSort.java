@@ -1,8 +1,9 @@
 package kys.study.dataStructure.sort.impl;
 
 import kys.study.dataStructure.sort.AbstractSort;
+import kys.study.dataStructure.sort.Sort;
 
-public class BubbleSort extends AbstractSort {
+public class BubbleSort extends AbstractSort  implements Sort {
 
 	@Override
 	public void sorting(int[] value) {

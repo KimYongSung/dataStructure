@@ -1,8 +1,9 @@
 package kys.study.dataStructure.sort.impl;
 
 import kys.study.dataStructure.sort.AbstractSort;
+import kys.study.dataStructure.sort.Sort;
 
-public class InsertionSort extends AbstractSort{
+public class InsertionSort extends AbstractSort  implements Sort {
 
 	@Override
 	public void sorting(int[] arr) {

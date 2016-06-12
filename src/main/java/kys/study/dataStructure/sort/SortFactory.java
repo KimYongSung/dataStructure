@@ -3,6 +3,7 @@ package kys.study.dataStructure.sort;
 import kys.study.dataStructure.sort.impl.BubbleSort;
 import kys.study.dataStructure.sort.impl.InsertionSort;
 import kys.study.dataStructure.sort.impl.MergeSort;
+import kys.study.dataStructure.sort.impl.QuickSort;
 
 /**
  * <pre>
@@ -26,8 +27,10 @@ public class SortFactory {
 			return new InsertionSort();
 		case MERGE:
 			return new MergeSort();
+		case QUICK:
+			return new QuickSort();
 		default:
-			return new InsertionSort();
+			return new MergeSort();
 		}
 	}
 	
@@ -42,6 +45,7 @@ public class SortFactory {
 		
 		BUBBLE("bubble"),
 		INSERTION("insertion"),
+		QUICK("quick"),
 		MERGE("merge");
 		private String mode;
 		

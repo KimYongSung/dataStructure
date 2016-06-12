@@ -39,16 +39,14 @@ public class MyLinkedList<T> implements List<T>{
 	public void remove(int index) {
 		if(last == null || size < index) throw new IndexOutOfBoundsException();
 		if(index == size-1) { 
-			if(last.getBefore() == null){
-				last = null;
-			}else{
+			if(last.getBefore() == null) last = null;
+			else{
 				last = last.getBefore();
 				last.setNext(null);
 			}
 		}else if(index == 0){
-			if(first.getNext() == null){
-				first = null;
-			}else{
+			if(first.getNext() == null) first = null;
+			else{
 				first = first.getNext();
 				first.setBefore(null);
 			}

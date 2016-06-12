@@ -47,6 +47,13 @@ public class SortTest {
 		sort.sorting(arr);
 	}
 	
+	@Test
+	public void quickTest(){
+		Sort sort = SortFactory.getInstance(SortAlgorithm.QUICK);
+		sort.sorting(arr);
+	}
+	
+	
 	@After
 	public void after(){
 		System.out.println("정렬 후 :");

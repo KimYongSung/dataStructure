@@ -25,6 +25,4 @@ public interface Stack<T> {
 	 * @return
 	 */
 	boolean empty();
-
-	int length();
 }

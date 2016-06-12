@@ -1,15 +1,16 @@
 package kys.study.dataStructure.sort.impl;
 
 import kys.study.dataStructure.sort.AbstractSort;
+import kys.study.dataStructure.sort.Sort;
 
-public class MergeSort extends AbstractSort{
+public class MergeSort extends AbstractSort  implements Sort {
 
 	@Override
 	public void sorting(int[] arr) {
 		divide(arr,0,arr.length-1);
 	}
 	
-	public void divide(int[] arr,int start, int end){
+	private void divide(int[] arr,int start, int end){
 		if((end - start) < 1) return;
 		int mid = (start+end) / 2;
 		
@@ -18,7 +19,7 @@ public class MergeSort extends AbstractSort{
 		merge(arr, start, mid, end);
 	}
 	
-	public void merge(int[] arr,int start,int mid, int end){
+	private void merge(int[] arr,int start,int mid, int end){
 		int tempArr[] = new int[10];
 
 		int left = start;
