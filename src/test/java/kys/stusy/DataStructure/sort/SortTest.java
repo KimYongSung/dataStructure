@@ -1,16 +1,24 @@
 package kys.stusy.DataStructure.sort;
 
+import java.util.Comparator;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import kys.study.dataStructure.sort.Sort;
-import kys.study.dataStructure.sort.SortFactory;
-import kys.study.dataStructure.sort.SortFactory.SortAlgorithm;
+import kys.study.dataStructure.sort.impl.BubbleSort;
+import kys.study.dataStructure.sort.impl.InsertionSort;
+import kys.study.dataStructure.sort.impl.MergeSort;
+import kys.study.dataStructure.sort.impl.QuickSort;
 
 public class SortTest {
 
-	private int[] arr = new int[10];
+	private Integer[] arr = new Integer[10];
+	
+	private Comparator<Integer> comparator = (Integer o1, Integer o2) -> {
+		return o1 - o2;
+	};
 	
 	@Before
 	public void before(){
@@ -31,26 +39,26 @@ public class SortTest {
 	
 	@Test
 	public void bubbleTest(){
-		Sort sort = SortFactory.getInstance(SortAlgorithm.BUBBLE);
-		sort.sorting(arr);
+		Sort<Integer> sort = new BubbleSort<Integer>();
+		sort.sorting(arr, comparator);
 	}
 	
 	@Test
 	public void insertionTest(){
-		Sort sort = SortFactory.getInstance(SortAlgorithm.INSERTION);
-		sort.sorting(arr);
+		Sort<Integer> sort = new InsertionSort<Integer>();
+		sort.sorting(arr, comparator);
 	}
 	
 	@Test
 	public void mergeTest(){
-		Sort sort = SortFactory.getInstance(SortAlgorithm.MERGE);
-		sort.sorting(arr);
+		Sort<Integer> sort = new MergeSort<Integer>();
+		sort.sorting(arr, comparator);
 	}
 	
 	@Test
 	public void quickTest(){
-		Sort sort = SortFactory.getInstance(SortAlgorithm.QUICK);
-		sort.sorting(arr);
+		Sort<Integer> sort = new QuickSort<Integer>();
+		sort.sorting(arr, comparator);
 	}
 	
 	

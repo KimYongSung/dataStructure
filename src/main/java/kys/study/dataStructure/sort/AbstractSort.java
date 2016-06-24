@@ -9,8 +9,8 @@ public abstract class AbstractSort{
 	 * @param index1 위치를 변경할 배열 인덱스
 	 * @param index2 위치를 변경할 배열 인덱스
 	 */
-	public void swap(int[] value, int index1, int index2){
-		int temp = value[index1];
+	public <T> void swap(T[] value, int index1, int index2){
+		T temp = value[index1];
 		value[index1] = value[index2];
 		value[index2] = temp;
 	}
